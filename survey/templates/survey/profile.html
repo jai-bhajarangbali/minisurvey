@@ -1,0 +1,35 @@
+{% extends 'survey/base.html' %}
+
+
+
+
+{% block body %}
+<h4>USER :  {{username}}</h4>
+</br>
+</br>
+
+
+
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>LIST OF YOUR PUBLISHED SURVEYS : </h4></li>
+        {%for survey in survey_list%}
+            {%if survey.published%}
+                <li class="collection-item"><div>{{survey.name}}<a href={%url 'results' survey.id%} class="secondary-content"><i class="material-icons">send</i></a></div></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+
+
+
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>LIST OF YOUR DRAFT SURVEYS : </h4></li>
+        {%for survey in survey_list%}
+            {%if not survey.published%}
+                <li class="collection-item"><div>{{survey.name}}<a href={% url 'detail' survey.id%} class="secondary-content"><i class="material-icons">edit</i></a></div></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'survey/base.html' %}
+
+{% block body %}
+
+
+     <ul class="collection with-header">
+        <li class="collection-header"><h4>LIST OF AVAILABLE SURVEYS : </h4></li>
+        {%for survey in survey_list%}
+            {%if survey.published%}
+                <li class="collection-item"><div>{{survey.name}}<a href={%url 'check' survey.id%} class="secondary-content"><i class="material-icons">send</i></a></div></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+
+
+{% endblock %}

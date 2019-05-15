@@ -1,0 +1,27 @@
+{% extends 'survey/base.html' %}
+
+{% block navbar %}
+	<li><a href={% url 'login' %}>LOGIN</a></li>
+	<li><a href={% url 'signup' %}>SIGNUP</a></li>
+{% endblock %}
+
+{% block body %}
+
+
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>WELCOME TO THE SURVEY SYSTEM</h4></li>
+        <li class="collection-item"><h6>GET THE ANSWERS YOU NEED</h6></li>
+        <li class="collection-item"><p>Here we present an efficient platform to create and manage the surveys. Get all the answers you need from your people by registering to our platform. Post the questions in the created survey, and get back the results from the intended users. </p></li>
+      </ul>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block logout %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'survey/base.html' %}
+
+{% block body %}
+
+{%if messages%}
+    {%for message in messages%}
+        {{message}}
+    {%endfor%}
+{%endif%}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">FINISH</button>
+    </form>
+
+{% endblock %}

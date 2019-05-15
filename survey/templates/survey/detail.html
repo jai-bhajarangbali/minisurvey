@@ -1,0 +1,44 @@
+{% extends 'survey/base.html' %}
+
+
+
+{% block body %}
+
+    <h4>
+        details of {{survey.name}}   <h3><button>  <a href = {% url 'publish' survey.id%}>PUBLISH</a> </button></h3>
+    </h4>
+
+
+
+<button class="btn btn-warning"><a href = {% url 'addqtn' survey.id%}>add new qeustion</a></button>
+    <br/><br/><br/>
+
+
+
+      <ul class = "collapsible" data-collapsible = "accordion">
+        {%for i in qtns%}
+         <li>
+            <div class = "collapsible-header">
+               {{forloop.counter}}. {{i.qtn}}<a href = {% url 'deleteqtn' i.id%}><i class="material-icons">delete</i></a></div>
+            <div class = "collapsible-body"><p>1. {{i.o1}}</br>2. {{i.o2}}</br> 3. {{i.o3}}</br>4. {{i.o4}}</br></p></div>
+         </li>
+         {%endfor%}
+         
+      </ul>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); 
+
+
+    $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
+
+
+
+{% endblock %}

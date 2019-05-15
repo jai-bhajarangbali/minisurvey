@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SURVEY{% endblock %}</title>
+    {% load staticfiles %}
+    <!--<link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'survey/style.css' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
+        <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+    <!--<script src="{% static 'music/js/main.js' %}"></script>-->
+</head>
+<body>
+<div class="container">
+        <!-- Page Content goes here -->
+   
+    <nav>
+    <div class="nav-wrapper">
+      <a href={% url 'home' %} class="brand-logo">SURVEY SYSTEM</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {% block navbar %}
+            <li><a href={% url 'profile' %}>PROFILE</a></li>
+            <li><a href={% url 'create' %}>CREATE</a></li>
+            <li><a href={% url 'fill' %}>FILL</a></li>
+            <li><a href={% url 'logout' %}>LOGOUT</a></li>
+        {% endblock %}
+      </ul>
+    </div>
+  </nav>
+
+  <!--
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'profile' %}">Survey System</a>
+        </div>
+
+        
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    {%block logout%}
+                    <a href="{% url 'logout' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
+                        {%endblock%}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+-->
+
+{% block body %}
+{% endblock %}
+
+</body>
+
+
+ <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+</div>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'survey/base.html' %}
+
+
+
+
+{% block body %}
+
+    <h4>you have {{responses}} responses so far....</h4>
+    <br/>
+
+
+      <ul class = "collapsible" data-collapsible = "accordion">
+        {%for key,value in d2.items%}
+         <li>
+            <div class = "collapsible-header">
+               {{forloop.counter}}. {{key.qtn}}</div>
+            <div class = "collapsible-body">
+                <p>1. {{key.o1}}  <div class="progress"><div class="determinate" style="width: {{value.0}}%"></div></div></br>
+                   2. {{key.o2}}  <div class="progress"><div class="determinate" style="width: {{value.1}}%"></div></div></br>
+                   3. {{key.o3}}  <div class="progress"><div class="determinate" style="width: {{value.2}}%"></div></div></br>
+                   4. {{key.o4}}  <div class="progress"><div class="determinate" style="width: {{value.3}}%"></div></div></br></p>
+            </div>
+         </li>
+         {%endfor%}
+         
+      </ul>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); 
+</script>
+
+
+
+{% endblock %}

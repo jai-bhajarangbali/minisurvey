@@ -1,0 +1,29 @@
+{% extends 'survey/base.html' %}
+
+{% block body %}
+
+
+{%if messages%}
+    {%for message in messages%}
+        {{message}}
+    {%endfor%}
+{%endif%}
+
+<form method="post">
+    {% csrf_token %}
+
+    {{formset.management_form}}
+    {% for tupl in myzip %}
+       <h4><b>{{forloop.counter}}. {{tupl.1.qtn}}</b></h4>
+
+        {{ tupl.0.as_p }}
+        <br/>
+    {%endfor%}
+
+    <button type="submit">FINISH</button>
+
+
+</form>
+
+
+{% endblock %}
